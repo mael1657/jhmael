@@ -1,13 +1,10 @@
 import React from "react";
-import "./App.css";
+import "./assets/css/App.css";
+import AppRouter from "./routes/Router";
 
 function App() {
   return (
-    <div className="app">
-      <div className="nav">
-        <h1 className="logoTitle">JH.Mael</h1>
-      </div>
-    </div>
+    <AppRouter/>
   );
 }
 
