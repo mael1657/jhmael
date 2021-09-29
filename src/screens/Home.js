@@ -1,10 +1,16 @@
-import React,{useState}from "react";
+import React,{useState, useRef}from "react";
 import ProjectList from "../components/ProjectList";
 
 const Home = () => {
-    const [modSize, setModSize] = useState(false);
-    const [isSelect, setIsSelect] = useState([false,false]);
+    const [modSize, setModSize] = useState(false); //item height 변경
+    const [isSelect, setIsSelect] = useState([false,false]); //item 선택
 
+    const scrollRef = useRef([])
+
+    // useEffect((index) => {
+    //     scrollRef.current[index].scrollIntoView({behavior:"smooth",block:"center"})
+    // },[])
+    
     const handleIDX = (index) => {
         const newArr = Array(projectNm.length).fill(false);
         newArr[index] = true;
@@ -55,8 +61,11 @@ const Home = () => {
             <div className="global-width">
                 {projectNm.map((item, index) =>
                     <ProjectList 
+                    ref={scrollRef.current[index]}
                     item={item} 
-                    handleClick={()=>handleIDX(index)}
+                    handleClick={()=>{
+                        handleIDX(index)
+                    }}
                     key={index}
                     isSelect={isSelect[index]}
                     modSize={modSize}
