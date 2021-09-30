@@ -1,8 +1,9 @@
-import React from "react";
+import React ,{forwardRef}from "react";
 
-const ProjectList = (props) => {
+const ProjectList = forwardRef((props,ref) => {
     return(
         <div 
+        ref={ref}
         className={props.isSelect && props.modSize ? "project-item on" : "project-item"}
         onClick={props.handleClick}
         style={{backgroundImage:`url(${props.item.image})`}}
@@ -12,6 +13,6 @@ const ProjectList = (props) => {
             </div>
         </div>
     )
-}
+});
 
 export default ProjectList;

@@ -7,16 +7,19 @@ const Home = () => {
 
     const scrollRef = useRef([])
 
-    // useEffect((index) => {
-    //     scrollRef.current[index].scrollIntoView({behavior:"smooth",block:"center"})
-    // },[])
+    const scrollTo = (index) => {
+        setTimeout(() => {
+            scrollRef.current[index].scrollIntoView({ behavior:"smooth", block:"center"})
+        }, 1000);
+    }
     
     const handleIDX = (index) => {
         const newArr = Array(projectNm.length).fill(false);
         newArr[index] = true;
         setIsSelect(newArr);
         setModSize(true);
-        window.addEventListener('scroll',() => {setModSize(false)});
+        scrollTo(index);
+        // window.addEventListener('scroll',() => {setModSize(false)});
     }
 
     let projectNm = [
@@ -61,7 +64,7 @@ const Home = () => {
             <div className="global-width">
                 {projectNm.map((item, index) =>
                     <ProjectList 
-                    ref={scrollRef.current[index]}
+                    ref={(el) => (scrollRef.current[index] = el)}
                     item={item} 
                     handleClick={()=>{
                         handleIDX(index)

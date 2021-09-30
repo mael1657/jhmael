@@ -105,6 +105,7 @@ img{
     background-size: cover;
     transition:1s ease-in-out;
     filter: grayscale(1);
+    position:relative;
 }
 .project-item:hover{
     filter:grayscale(0)
@@ -116,10 +117,12 @@ img{
 .pi-title{
     font-size:3rem;
     overflow: hidden;
+    position:absolute;
+    bottom:5vh;
 }
 .pi-title .pi-span{
     display:block;
-    transform: translateY(50px);
+    transform: translateY(70px);
     transition: 1s ease-in-out;
 }
 .pi-title .pi-span.on{
