@@ -10,7 +10,7 @@ const Home = () => {
     const scrollTo = (index) => {
         setTimeout(() => {
             scrollRef.current[index].scrollIntoView({ behavior:"smooth", block:"center"})
-        }, 1000);
+        }, 200);
     }
     
     const handleIDX = (index) => {
@@ -19,7 +19,7 @@ const Home = () => {
         setIsSelect(newArr);
         setModSize(true);
         scrollTo(index);
-        // window.addEventListener('scroll',() => {setModSize(false)});
+        window.addEventListener('wheel',() => {setModSize(false)});
     }
 
     let projectNm = [

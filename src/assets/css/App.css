@@ -96,20 +96,19 @@ img{
 
 .project-item{
     width:80%;
-    height: 80px;
+    height: 10vh;
     margin:0 auto;
     margin-bottom:3vh;
     background-color: white;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    transition:1s ease-in-out;
     filter: grayscale(1);
     position:relative;
 }
-.project-item:hover{
-    filter:grayscale(0)
-}
+/* .project-item:hover{
+    filter:grayscale(0);
+} */
 .project-item.on{
     height:60vh;
     filter: grayscale(0);
