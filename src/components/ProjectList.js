@@ -5,13 +5,16 @@ const ProjectList = forwardRef((props,ref) => {
 
     const [toggle, setToggle] = useState(false);
 
-
     const hovered = useSpring({
-        scale: toggle ? 1.05 : 1,
         config: config.wobbly,
+        scale: toggle ? 1.05 : 1,
     })
 
-
+    const {size, boxSize} = useSpring({
+        size : props.isSelect && props.modSize ? '60vh' : '10vh',
+        config: config.default,
+    })
+    
     return(
         <animated.div 
         ref={ref}
@@ -19,10 +22,12 @@ const ProjectList = forwardRef((props,ref) => {
         onClick={props.handleClick}
         onPointerOver={() => {setToggle(true)}}
         onPointerOut={() => {setToggle(false)}}
-        style={{backgroundImage:`url(${props.item.image})`},hovered}
+        style={{...hovered,...boxSize, backgroundImage:`url(${props.item.image})`, height:size}}
         >
             <div className="pi-title">
-                <span className={props.isSelect && props.modSize ? "pi-span on" : "pi-span"}>{props.item.name}</span>
+                <span 
+                className={props.isSelect && props.modSize ? "pi-span on" : "pi-span"}
+                >{props.item.name}</span>
             </div>
         </animated.div>
     )

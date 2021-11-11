@@ -66,9 +66,7 @@ const Home = () => {
                     <ProjectList 
                     ref={(el) => (scrollRef.current[index] = el)}
                     item={item} 
-                    handleClick={()=>{
-                        handleIDX(index)
-                    }}
+                    handleClick={()=>{handleIDX(index)}}
                     key={index}
                     isSelect={isSelect[index]}
                     modSize={modSize}
